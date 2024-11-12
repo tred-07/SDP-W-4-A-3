@@ -3,12 +3,17 @@
 {% block content %}
 <h1 class="text-center">Home</h1>
 
-<div class="cards" style="display: flex;flex-wrap: wrap;width: 80%;margin: auto;">
+<div class="cards" style="display: flex;flex-wrap: wrap;width: 80%;margin: auto;justify-content: center;">
     {% for task in tasks %} 
-    <div class="card" style="width: 18rem;margin: 10px;">
+    <div class="card" style="width: 18rem;margin: 10px;width: 25%;border: 1px solid black;">
         <div class="card-body">
           <h5 class="card-title">{{task.taskTitle}}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">{{task.taskDescription}}</h6>
+          <h6>Category: 
+            {% for category in task.category.all %}
+            <btn class="btn btn-primary">{{category}}</btn>
+            {% endfor %}
+          </h6>
           {% if task.is_completed %}
           <button class="btn btn-success">Completed</button>
           {% else %}
