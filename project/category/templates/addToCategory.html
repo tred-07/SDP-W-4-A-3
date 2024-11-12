@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Add category{%endblock title%}
+{% load crispy_forms_tags %}
 {% block content %}
 <h1 style="text-align: center;">Add category</h1>
-<form method="POST">
+<form method="POST" style="width: 20%;margin: auto;">
     {% csrf_token %}
-    {{form}}
+    {{form|crispy}}
     <button class="btn btn-warning">Add</button>
 </form>
 {% endblock%}
