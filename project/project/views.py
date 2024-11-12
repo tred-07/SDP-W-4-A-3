@@ -6,4 +6,4 @@ def home(request):
          print(task.is_completed)
          for category1 in task.category.all():
               print(category1)
-    return render(request,'home.html',{'tasks':tasks})
+    return render(request,'showTask.html',{'tasks':tasks})
